@@ -58,7 +58,7 @@ export default function ServiceModal({ service, isOpen, onClose, onReserve }: Se
               <div className="text-3xl font-bold text-primary">{service.price}</div>
               {service.packages && (
                 <div className="mt-2 text-sm text-muted-foreground">
-                  Forfaits disponibles - Économisez jusqu'à {service.packages[1]?.savings}
+                  Forfaits disponibles - Économisez jusqu&apos;à {service.packages[1]?.savings}
                 </div>
               )}
             </div>
