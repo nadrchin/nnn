@@ -7,6 +7,12 @@ import { Badge } from '@/components/ui/badge';
 import { Search, Filter, Clock, Star, ArrowLeft } from 'lucide-react';
 import { allServices, categories, ServiceDetail } from '@/data/services';
 import ServiceModal from '@/components/ServiceModal';
+import { services } from "@/data/services";
+import { AllServices } from "@/components/AllServices";
+
+export default function PrestationsPage() {
+  return <AllServices services={services} />;
+}
 
 export default function PrestationsPage() {
   const [selectedCategory, setSelectedCategory] = useState('Toutes les catégories');
