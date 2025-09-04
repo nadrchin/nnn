@@ -43,7 +43,7 @@ export const Hero = () => {
                   <Star key={i} className="w-5 h-5 fill-gold text-gold" />
                 ))}
               </div>
-              <span className="text-lg font-semibold text-foreground">5,0 · 1 avis</span>
+              {/* SUPPRIMÉ: <span className="text-lg font-semibold text-foreground">5,0 · 1 avis</span> */}
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary">

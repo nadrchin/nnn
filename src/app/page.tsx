@@ -5,6 +5,8 @@ import { About } from '@/components/About';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 import { ReservationForm } from '@/components/ReservationForm';
+import { IoTSimulator } from '@/components/IoTSimulator'; // <-- ajout
+
 export default function Home() {
   return (
     <div className="min-h-screen">
@@ -13,7 +15,8 @@ export default function Home() {
         <Hero />
         <Services />
 
-<section id="reservation" className="py-20 bg-white">
+        {/* Section Réservation */}
+        <section id="reservation" className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
@@ -29,6 +32,16 @@ export default function Home() {
 
         <About />
         <Contact />
+
+        {/* Section IoT */}
+        <section id="iot" className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-primary text-center">
+              Tableau de bord IoT
+            </h2>
+            <IoTSimulator />
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

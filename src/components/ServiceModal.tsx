@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { X } from "lucide-react";
+//import { X } from "lucide-react";
 import { Service } from "@/data/services";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,12 +12,13 @@ import {
 } from "@/components/ui/dialog";
 
 interface ServiceModalProps {
-  service: Service;
+  service: Service | null;
   isOpen: boolean;
   onClose: () => void;
+  onReserve: () => void;
 }
 
-export default function ServiceModal({ service, isOpen, onClose }: ServiceModalProps) {
+export default function ServiceModal({ service, isOpen, onClose, onReserve }: ServiceModalProps) {
   if (!service) return null;
 
   return (
@@ -75,7 +75,7 @@ export default function ServiceModal({ service, isOpen, onClose }: ServiceModalP
             <Button variant="outline" onClick={onClose}>
               Fermer
             </Button>
-            <Button onClick={() => window.location.href = '/#contact'}>
+            <Button onClick={onReserve}>
               Prendre rendez-vous
             </Button>
           </div>

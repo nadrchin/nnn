@@ -8,6 +8,8 @@ export interface Service {
   longDescription: string;
   benefits: string[];
   process: string[];
+  restrictions?: string[];
+  popular?: boolean;
 }
 
 export const services: Service[] = [
@@ -19,7 +21,11 @@ export const services: Service[] = [
     duration: "45 min",
     price: "50 €",
     description: "Regard intense et yeux de biche pendant 6 à 8 semaines",
-    longDescription: "Le rehaussement des cils vous permet d'obtenir un regard intense et d'afficher des yeux de biche pendant six à huit semaines. Le rehaussement des cils permet d'allonger et de recourber les cils. Excellente alternative à la permanente des cils, cette technique permet d'obtenir des résultats spectaculaires et naturels sans fragiliser vos cils. Vos cils sont plus recourbés et paraissent plus longs. Vos yeux semblent agrandis. Votre regard est sublimé.",
+    longDescription: `Le rehaussement des cils vous permet d'obtenir un regard intense et d'afficher des yeux de biche pendant six à huit semaines.
+
+Le rehaussement des cils permet d'allonger et de recourber les cils. Excellente alternative à la permanente des cils, cette technique permet d'obtenir des résultats spectaculaires et naturels sans fragiliser vos cils. Vos cils sont plus recourbés et paraissent plus longs.
+
+Vos yeux semblent agrandis. Votre regard est sublimé.`,
     benefits: [
       "Regard intense et naturel",
       "Effet longue durée (6-8 semaines)",
@@ -44,7 +50,11 @@ export const services: Service[] = [
     duration: "1 h",
     price: "90 €",
     description: "Stimulation naturelle du collagène pour une peau rajeunie",
-    longDescription: "Le microneedling est une technique innovante qui stimule la production naturelle de collagène de votre peau. À l'aide de micro-aiguilles stériles, nous créons des micro-canaux qui permettent une meilleure pénétration des principes actifs et déclenchent le processus naturel de régénération cutanée.",
+    longDescription: `La technique du micro-needling est réalisée à l'aide d'un appareil doté d'aiguilles microscopiques qui injectent de l'acide hyaluronique au cœur du derme pour agir sur la fermeté et l'éclat des tissus cutanés.
+
+L'acide hyaluronique est une protéine naturellement présente dans la peau, dont elle assure le soutien et l'élasticité. Sa quantité diminuant avec l'âge, la peau perd peu à peu de sa densité et de son rebondi. Grâce à cette injection par micro-aiguilles qui stimulent les fibroblastes, votre peau est visiblement repulpée et lissée. Elle bénéficie en prime d'une hydratation en profondeur grâce à la propriété de l'acide hyaluronique de retenir jusqu'à vingt fois son poids en eau.
+
+Vos ridules sont atténuées et vos traits retrouvent leur fermeté grâce à un effet tenseur léger et parfaitement naturel.`,
     benefits: [
       "Atténuation des rides et ridules",
       "Réduction des cicatrices d'acné",
@@ -69,7 +79,13 @@ export const services: Service[] = [
     duration: "1 h - 1 h 30 min",
     price: "à partir de 90 €",
     description: "Contour et couleur naturelle pour des lèvres parfaites au quotidien",
-    longDescription: "Notre technique de maquillage semi-permanent des lèvres redéfinit votre contour labial et apporte une couleur naturelle et durable. Parfait pour celles qui souhaitent gagner du temps tout en ayant des lèvres parfaitement dessinées au quotidien.",
+    longDescription: `Vous rêvez d'une bouche sensuelle et pulpeuse ? Optez pour le maquillage permanent pour le contour ou le remplissage de vos lèvres.
+
+La séance commence par un échange qui permet à l'équipe professionnelle de comprendre vos attentes et vos goûts et d'identifier le maquillage le plus adapté à votre morphologie et à votre carnation.
+
+Après un contour préalablement tracé au crayon, les pigments sont alors introduits dans le derme à l'aide d'un dermographe et d'une fine aiguille stérile. Le remplissage s'obtient en partant du contour de la lèvre vers l'intérieur, la couleur étant implantée en dégradé pour un effet naturel.
+
+Votre bouche est redéfinie et sensuelle : vous vous sentez belle tout au long de la journée !`,
     benefits: [
       "Contour parfaitement défini",
       "Couleur naturelle et personnalisée",
@@ -83,6 +99,12 @@ export const services: Service[] = [
       "Application de la pigmentation",
       "Validation du résultat",
       "Explication des soins post-traitement"
+    ],
+    restrictions: [
+      "Évitez les UV dans les 8 jours suivant le soin",
+      "Évitez le sauna et le hammam pendant la cicatrisation",
+      "Évitez les bains de mer et la piscine",
+      "Ne grattez ou frottez pas la zone concernée"
     ]
   },
   {
@@ -92,7 +114,12 @@ export const services: Service[] = [
     duration: "1 h 30 min",
     price: "à partir de 100 €",
     description: "Regard magnifié avec un eye-liner parfait et durable",
-    longDescription: "Notre eye-liner semi-permanent vous offre un regard magnifié au quotidien sans efforts. Que vous préfériez une ligne discrète ou un trait plus marqué, nous adaptons le tracé à la forme de vos yeux pour un résultat naturel et harmonieux.",
+    longDescription: `Ouvrez votre regard et offrez-vous un regard de biche grâce au maquillage permanent.
+
+La séance débute par l'étude de votre morphologie et de la forme de votre œil. Un dessin au crayon est alors réalisé sur votre paupière supérieure afin de valider avec vous l'intensité et la forme du trait d'eye-liner que vous souhaitez avoir.
+Les pigments sont alors introduits dans le derme à l'aide d'un dermographe et d'une fine aiguille stérile.
+
+Votre regard s'ouvre. Quelque soit le moment de la journée, vous êtes resplendissante !`,
     benefits: [
       "Regard magnifié au quotidien",
       "Résistant à l'eau et aux larmes",
@@ -106,6 +133,12 @@ export const services: Service[] = [
       "Dessin du tracé personnalisé",
       "Application de la pigmentation",
       "Soins post-traitement"
+    ],
+    restrictions: [
+      "Évitez les UV dans les 8 jours suivant le soin",
+      "Évitez le sauna et le hammam pendant la cicatrisation",
+      "Évitez les bains de mer et la piscine",
+      "Ne grattez ou frottez pas la zone concernée"
     ]
   },
 
@@ -117,7 +150,16 @@ export const services: Service[] = [
     duration: "1 h - 6 h",
     price: "à partir de 80 €",
     description: "Technique ancestrale pour raffermir et remodeler la silhouette",
-    longDescription: "Le lifting colombien est un traitement ancestral qui utilise des enveloppements d'argile et de plantes médicinales pour raffermir la peau, réduire les capitons et remodeler la silhouette. Cette technique naturelle offre des résultats visibles dès la première séance.",
+    longDescription: `Des courbes, oui, mais avec fermeté ! Alors optez pour ce soin de "Lifting Fessier" !
+
+Basé sur la thérapie drainante de vacuum, ou aspiration, ce soin est effectué à l'aide d'une machine stimulant la circulation sanguine.
+
+Ce soin est idéal pour galber la zone du fessier tout en apportant tonicité et fermeté à votre peau. Ainsi :
+
+Vos fesses sont tonifiées et rehaussées,
+Un drainage lymphatique efficace est effectué,
+Votre corps est remodelé.
+Votre silhouette est transformée !`,
     benefits: [
       "Raffermissement cutané",
       "Réduction de la cellulite",
@@ -140,7 +182,13 @@ export const services: Service[] = [
     duration: "1 h - 6 h",
     price: "à partir de 70 €",
     description: "Technologie ultrasonique pour cibler et éliminer les cellules graisseuses",
-    longDescription: "La lipocavitation est une technique non invasive qui utilise les ultrasons de basse fréquence pour cibler et éliminer les cellules graisseuses localisées. Idéale pour remodeler les zones récalcitrantes comme les cuisses, les hanches ou le ventre.",
+    longDescription: `La lipocavitation est une technique de soin qui permet de se débarrasser de la cellulite de manière non invasive et indolore.
+
+Agissant grâce à l'émission d'ultrasons à travers la peau, la lipocavitation fait fondre les amas graisseux de manière progressive : les cellules adipeuses et l'eau infiltrée sont destockées des tissus avant d'être naturellement éliminées par l'organisme.
+
+Les effets sont visibles après deux ou trois séances en moyenne, cette méthode étant considérée comme particulièrement efficace sous forme de cure de six à huit séances.
+
+Vous pouvez enfin say adieu à la peau d'orange et retrouver un corps lisse et ferme !`,
     benefits: [
       "Réduction des amas graisseux localisés",
       "Non invasif et indolore",
@@ -154,6 +202,21 @@ export const services: Service[] = [
       "Traitement par ultrasons",
       "Massage de drainage",
       "Conseils pour optimiser les résultats"
+    ],
+    restrictions: [
+      "Grossesse ou allaitement",
+      "Port d'implants métalliques",
+      "Port de prothèses",
+      "Maladies cardio-vasculaires",
+      "Diabète",
+      "Prise de médicaments photosensibilisants",
+      "Problèmes de coagulation",
+      "Problèmes rénaux",
+      "Épilepsie",
+      "Phlébite",
+      "Hypertension",
+      "Infection de la peau",
+      "Mineurs"
     ]
   },
   {
@@ -163,7 +226,17 @@ export const services: Service[] = [
     duration: "1 h",
     price: "85 €",
     description: "Technique manuelle intensive pour combattre la cellulite",
-    longDescription: "Notre massage anti-cellulite palper-rouler est une technique manuelle intensive qui déloge les capitons graisseux, active la circulation et relance le processus de drainage lymphatique. Un soin incontournable pour celles qui souhaitent retrouver une peau lisse et ferme.",
+    longDescription: `Le palper-rouler manuel est un massage du corps amincissant réalisé avec une huile. Grâce aux pressions, aux pincements et aux malaxages, le corps s’affine, des bras au ventre en passant par la taille, les hanches et les fesses.
+
+Ce soin offre plusieurs bienfaits :
+
+Affine l’ensemble de la silhouette,
+Diminue l’aspect peau d'orange,
+Tonifie la peau,
+Hydrate la peau,
+Favorise la fonte des graisses et relance la circulation veineuse, lymphatique et énergétique.
+
+Votre peau est lissée et raffermie, votre silhouette affinée et remodelée et l'effet peau d'orange gommé.`,
     benefits: [
       "Déstockage des graisses localisées",
       "Amélioration de la circulation sanguine",
@@ -188,7 +261,17 @@ export const services: Service[] = [
     duration: "1 h",
     price: "75 €",
     description: "Massage enveloppant et relaxant pour un bien-être profond",
-    longDescription: "Le massage californien est un massage enveloppant et relaxant qui utilise de longs mouvements fluides pour dissoudre les tensions et apporter une détente profonde. Idéal pour évacuer le stress et retrouver une harmonie corps-esprit.",
+    longDescription: `Le massage californien combine les bienfaits des huiles essentielles aux longs mouvements fluides et harmonieux pour dénouer les points de tension et relaxer vos muscles.
+
+Les bienfaits de ce massage sont nombreux :
+
+Dénouement des tensions,
+Éveil de la sensibilité,
+Harmonie du corps,
+Équilibre nerveux,
+Anti-stress.
+
+Empli d'un durable sentiment de quiétude et de sérénité, c'est léger comme une plume que vous quittez l'institut.`,
     benefits: [
       "Détente musculaire profonde",
       "Réduction du stress et de l'anxiété",
@@ -202,7 +285,8 @@ export const services: Service[] = [
       "Mouvements longs et enveloppants",
       "Travail spécifique sur les zones de tension",
       "Temps de repos pour intégrer les bienfaits"
-    ]
+    ],
+    popular: true
   },
   {
     id: "massage-dos-tonique",
@@ -211,7 +295,16 @@ export const services: Service[] = [
     duration: "30 min",
     price: "45 €",
     description: "Déverrouillage des tensions et revitalisation du dos",
-    longDescription: "Notre massage du dos tonique cible spécifiquement les tensions accumulées dans la région dorsale. Par des manœuvres précises et tonifiantes, il déverrouille les muscles contractés et redonne vitalité à toute la zone du dos.",
+    longDescription: `Vous en avez littéralement "plein le dos" et vous avez besoin d'une pause ?
+
+Ce massage relaxant du dos combine les vertus apaisantes des huiles essentielles à des mouvements circulaires et des pressions douces pour :
+
+Éliminer vos tensions,
+Détendre vos muscles,
+Réduire le stress et les crispations,
+Créer un véritable bien-être.
+
+Une parenthèse bienfaisante qui vous permet de faire le plein d'énergie !`,
     benefits: [
       "Soulagement des douleurs dorsales",
       "Amélioration de la mobilité",
@@ -225,7 +318,8 @@ export const services: Service[] = [
       "Pétrissage et pression des muscles dorsaux",
       "Travail spécifique sur les cervicales et lombaires",
       "Étirements doux pour terminer"
-    ]
+    ],
+    popular: true
   },
   {
     id: "massage-tibetain",
@@ -234,7 +328,17 @@ export const services: Service[] = [
     duration: "1 h",
     price: "85 €",
     description: "Massage énergétique ancestral pour rééquilibrer les flux vitaux",
-    longDescription: "Inspiré des traditions ancestrales tibétaines, ce massage énergétique vise à rééquilibrer les flux vitaux et harmoniser le corps et l'esprit. Par des pressions spécifiques et des mouvements circulaires, il libère les blocages énergétiques et restaure l'équilibre intérieur.",
+    longDescription: `Offrez-vous un moment de détente et de bien-être absolu grâce à ce massage relaxant.
+
+Réalisé avec des gestes doux et précis, ce massage vient :
+
+Décontracter vos muscles,
+Soulager vos tensions,
+Apaiser votre esprit pour une relaxation intense et totale.
+
+De la pointe des pieds jusqu'au sommet de la tête, tout votre corps se délasse tandis que l'huile de massage laisse un sillage délicatement parfumé et un fini satiné sur votre peau.
+
+Quel plaisir de quitter le salon parfaitement détendu, prêt à savourer chaque instant de la journée !`,
     benefits: [
       "Rééquilibrage énergétique",
       "Libération des blocages émotionnels",
@@ -257,7 +361,17 @@ export const services: Service[] = [
     duration: "1 h",
     price: "80 €",
     description: "Soin traditionnel indien pour harmoniser les doshas",
-    longDescription: "Le massage ayurvédique est un soin traditionnel indien qui vise à harmoniser les doshas (énergies vitales) selon les principes de la médecine ayurvédique. Adapté à votre constitution personnelle, il apporte équilibre et vitalité à tout votre être.",
+    longDescription: `Inspiré de techniques indiennes ancestrales, ce massage utilise une huile ayurvédique pour rééquilibrer tout à la fois l'esprit, le corps et la peau.
+
+Alternant des manœuvres douces et profondes, il permet de :
+
+Dénouer vos nœuds et tensions,
+Décontracter vos muscles,
+Soulager stress, fatigue et douleur.
+
+Il contribue par ailleurs à stimuler la circulation sanguine et à apaiser le système nerveux.
+
+Régénérant et revitalisant, ce massage vous procure un durable sentiment d'harmonie et de bien-être.`,
     benefits: [
       "Équilibre des énergies vitales",
       "Élimination des toxines",
@@ -280,7 +394,18 @@ export const services: Service[] = [
     duration: "1 h",
     price: "90 €",
     description: "Technique de lifting manuel pour raffermir et tonifier",
-    longDescription: "Notre massage anti-âge est un véritable lifting manuel du visage, du cou et du décolleté. Par des manœuvres spécifiques de modelage et de drainage, il redessine l'ovale du visage, atténue les rides et redonne fermeté à la peau.",
+    longDescription: `Offrez-vous un moment de relaxation grâce à ce massage du visage.
+
+Réalisé avec délicatesse, ce massage consiste à agir sur les méridiens en se concentrant sur le visage, les tempes et le crâne.
+Les mouvements doux et fluides de ce massage visent à :
+
+Détendre vos traits et à estomper les signes de fatigue,
+Relancer la circulation sanguine et lymphatique,
+Raviver l'éclat de votre peau,
+Redessiner l'ovale du visage et repulper la peau,
+Soulager les maux de tête, les tensions dans la mâchoire, l'asthme, la fatigue oculaire, le rhume et les sinusites.
+
+Libéré de toutes tensions et crispations, votre visage rayonne.`,
     benefits: [
       "Redensification de la peau",
       "Atténuation des rides et ridules",
@@ -303,7 +428,9 @@ export const services: Service[] = [
     duration: "30 min",
     price: "30 €",
     description: "Détente intense pour libérer les tensions crâniennes",
-    longDescription: "Le massage du crâne est une technique spécifique qui vise à libérer les tensions accumulées au niveau de la boîte crânienne. Par des pressions précises et des mouvements circulaires, il soulage les maux de tête, réduit le stress et favorise un état de détente profonde.",
+    longDescription: `En plus de procurer un délassement profond à l'ensemble du corpo, le massage de la tête exerce une action bénéfique sur l'équilibre et la beauté des cheveux. Ce massage permet en effet de stimuler la micro-circulation sanguine, vecteur d'éléments nutritifs indispensables à la pousse et à la vitalité de vos cheveux.
+
+Un véritable soin capillaire doublé d'une délicieuse parenthèse de relaxation et de bien-être !`,
     benefits: [
       "Soulagement des maux de tête et migraines",
       "Réduction du stress et de l'anxiété",
@@ -317,7 +444,8 @@ export const services: Service[] = [
       "Pressions et mouvements circulaires sur le cuir chevelu",
       "Travail des points d'acupression crâniens",
       "Étirements doux du cou et des épaules"
-    ]
+    ],
+    popular: true
   },
 
   // Réflexologie Et Massage Lymphatique
@@ -328,7 +456,17 @@ export const services: Service[] = [
     duration: "1 h",
     price: "70 €",
     description: "Stimulation des points réflexes pour un équilibre général",
-    longDescription: "La réflexologie plantaire est une technique ancestrale qui consiste à stimuler des points réflexes précis sur les pieds, correspondant à différents organes et systèmes du corps. Cette méthode naturelle favorise l'équilibre général et l'auto-guérison de l'organisme.",
+    longDescription: `La réflexologie est une méthode de soin développée par les civilisations les plus anciennes d'Asie. Elle est exercée par des pressions marquées du bout des doigts sur des points précis, appelés points réflexes, qui correspondent chacun à un organe, une glande ou une partie du corpo spécifique.
+
+Les mouvements toniques et précis de votre praticienne localisent les zones de tensions afin de :
+
+Libérer vos blocages sur la totalité de votre corpo,
+Procurer une profonde relaxation bercée des arômes d'huiles naturelles,
+Harmoniser les fonctions vitales,
+Éliminer les toxines,
+Évacuer le stress,
+Apporter un regain d'énergie.
+Plusieurs millénaires de civilisation l'ont testée, vous en profitez !`,
     benefits: [
       "Équilibre général de l'organisme",
       "Réduction du stress et de la fatigue",
@@ -351,7 +489,15 @@ export const services: Service[] = [
     duration: "1 h 30 min - 8 h",
     price: "à partir de 95 €",
     description: "Technique de drainage pour éliminer les toxines et réduire la rétention d'eau",
-    longDescription: "Le drainage lymphatique selon la méthode brésilienne est une technique manuelle douce qui stimule la circulation de la lymphe, favorise l'élimination des toxines et réduit la rétention d'eau. Particulièrement recommandé après une chirurgie ou pour combattre la cellulite.",
+    longDescription: `Régénérez votre corpo avec ce massage drainant !
+
+Les effets drainants de ce massage permettent de :
+
+Déplacer le liquide tissulaire d'un endroit à un autre pour ainsi stimuler la circulation lymphatique,
+Nettoyer et désintoxiquer la musculature en dynamisant la circulation sanguine et en régularisant la motricité des intestins,
+Favoriser la régénération des cellules de l'organisme.
+
+Grâce à ce massage, votre système immunitaire est renforcé : vous vous sentez mieux dans votre corpo !`,
     benefits: [
       "Réduction de la rétention d'eau",
       "Élimination des toxines",
@@ -363,7 +509,7 @@ export const services: Service[] = [
       "Évaluation des zones à traiter",
       "Mouvements doux et rythmés",
       "Stimulation des ganglions lymphatiques",
--     "Travail spécifique sur les zones de stagnation",
+      "Travail spécifique sur les zones de stagnation",
       "Conseils pour optimiser les résultats"
     ]
   },
@@ -376,7 +522,9 @@ export const services: Service[] = [
     duration: "1 h",
     price: "90 €",
     description: "Obtenez un sourire éclatant avec notre blanchiment dentaire professionnel",
-    longDescription: "Notre blanchiment dentaire américain utilise une technologie de pointe pour vous offrir un sourire plusieurs tons plus blancs en une seule séance. Contrairement aux méthodes traditionnelles, notre procédé est sans sensibilité et respecte l'émail de vos dents.",
+    longDescription: `Retrouvez un sourire lumineux et éclatant en un temps record grâce à ces séances de blanchiment dentaire.
+
+L'institut vous conseille et vous accompagne au cours de votre soin afin de vous offrir un résultat efficace et naturel, sans aucun danger pour vos dents.`,
     benefits: [
       "Sourire plusieurs tons plus blancs",
       "Résultats immédiatement visibles",
@@ -390,6 +538,12 @@ export const services: Service[] = [
       "Application du gel blanchissant",
       "Activation par lumière LED",
       "Soin reminéralisant final"
+    ],
+    restrictions: [
+      "Grossesse ou allaitement",
+      "Problèmes dentaires",
+      "Intervention de chirurgie buccale récente",
+      "Mineurs"
     ]
   }
 ];

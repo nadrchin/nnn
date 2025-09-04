@@ -1,169 +1,155 @@
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useState } from 'react';
+import { Service } from '@/data/services';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Clock, Eye, Heart, Sparkles, Waves, Zap } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Clock, ArrowRight, Star } from 'lucide-react';
+import ServiceModal from './ServiceModal';
 
-interface ServicePackage {
-  sessions: number;
-  duration: string;
-  price: string;
-  savings?: string;
-}
-
-interface Service {
-  name: string;
-  duration: string;
-  price: string;
-  description: string;
-  popular?: boolean;
-  packages?: ServicePackage[];
-}
-
-interface ServiceCategory {
-  title: string;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+interface AllServicesProps {
   services: Service[];
 }
 
-// Version sans images des catégories de services
-const serviceCategories: ServiceCategory[] = [
-  {
-    title: "Beauté du Regard",
-    icon: Eye,
-    services: [
-      {
-        name: "Rehaussement de cils",
-        duration: "45 min",
-        price: "50 €",
-        description: "Rehaussement naturel pour un regard sublimé"
-      },
-      // Ajoutez toutes les autres prestations de cette catégorie ici
-    ]
-  },
-  {
-    title: "Soin du Visage",
-    icon: Sparkles,
-    services: [
-      {
-        name: "Soin du visage complet",
-        duration: "1h 30",
-        price: "90 €",
-        description: "Nettoyage, gommage, masque et hydratation"
-      },
-      // Ajoutez toutes les autres prestations de cette catégorie ici
-    ]
-  },
-  // Répétez pour toutes les catégories avec toutes leurs prestations
-];
-
-export const AllServices = () => {
-  const scrollToReservation = () => {
-    if (typeof window !== 'undefined') {
-      const element = document.getElementById('reservation');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+const groupByCategory = (services: Service[]) => {
+  return services.reduce((groups: Record<string, Service[]>, service) => {
+    const category = service.category;
+    if (!groups[category]) {
+      groups[category] = [];
     }
+    groups[category].push(service);
+    return groups;
+  }, {});
+};
+
+export const AllServices = ({ services }: AllServicesProps) => {
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const servicesByCategory = groupByCategory(services);
+  const categories = Object.keys(servicesByCategory);
+
+  const handleServiceClick = (service: Service) => {
+    setSelectedService(service);
+    setIsModalOpen(true);
+  };
+
+  const handleReservation = () => {
+    window.location.href = '/#reservation';
   };
 
   return (
-    <section id="all-services" className="py-20 bg-gradient-soft">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen pt-20 bg-gradient-to-b from-white to-blue-50/30">
+      <div className="container mx-auto px-4 py-12">
+        {/* Hero Section */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
             Toutes Nos Prestations
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Découvrez notre gamme complète de soins beauté et bien-être
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            Découvrez notre gamme complète de soins beauté et bien-être, 
+            réalisés par des professionnels expérimentés
           </p>
+          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
         </div>
 
-        <div className="grid gap-8">
-          {serviceCategories.map((category, index) => {
-            const Icon = category.icon;
+        {/* Services Grid */}
+        <div className="grid gap-12">
+          {categories.map((category, index) => {
+            const servicesInCategory = servicesByCategory[category];
+            const serviceCount = servicesInCategory.length;
+            
             return (
-              <Card key={index} className="overflow-hidden shadow-soft hover:shadow-elegant transition-all duration-300">
-                <CardHeader className="bg-gradient-to-r from-primary/90 to-primary/70 p-4 md:p-6">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 md:p-3 bg-white/20 rounded-full">
-                      <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
-                    </div>
-                    <CardTitle className="text-2xl md:text-3xl text-white font-bold">
-                      {category.title}
-                    </CardTitle>
-                  </div>
-                  <p className="text-white/90 text-sm md:text-lg font-medium">
-                    {category.services.length} prestation{category.services.length > 1 ? 's' : ''} disponible{category.services.length > 1 ? 's' : ''}
+              <div key={index} className="relative">
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold text-primary mb-4">{category}</h2>
+                  <p className="text-muted-foreground">
+                    {serviceCount} prestation{serviceCount > 1 ? 's' : ''} disponible{serviceCount > 1 ? 's' : ''}
                   </p>
-                </CardHeader>
-                <CardContent className="p-4 md:p-6">
-                  <div className="grid gap-4 md:gap-6">
-                    {category.services.map((service, serviceIndex) => (
-                      <div key={serviceIndex} className="bg-card border border-border rounded-xl p-4 md:p-6 hover:border-primary/30 transition-all duration-300">
-                        <div className="flex items-start justify-between mb-3 md:mb-4">
-                          <div className="flex-1">
-                            <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2 md:mb-3">
-                              <h4 className="font-semibold text-lg md:text-xl">
-                                {service.name}
-                              </h4>
-                              {'popular' in service && service.popular && (
-                                <Badge className="bg-gradient-primary text-primary-foreground text-xs md:text-sm w-fit">
-                                  Populaire
-                                </Badge>
-                              )}
-                            </div>
-                            <div className="flex items-center gap-4 text-muted-foreground mb-3">
-                              <div className="flex items-center gap-2">
-                                <Clock className="w-4 h-4 md:w-5 md:h-5" />
-                                <span className="text-sm md:text-base">{service.duration}</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <p className="text-muted-foreground mb-4 text-sm md:text-base leading-relaxed">
-                          {service.description}
-                        </p>
+                </div>
 
-                        {'packages' in service && service.packages ? (
-                          <div className="space-y-3 md:space-y-4">
-                            {service.packages.map((pkg: ServicePackage, pkgIndex: number) => (
-                              <div key={pkgIndex} className="flex flex-col md:flex-row md:items-center justify-between p-3 md:p-4 bg-accent/20 rounded-lg gap-2 md:gap-0">
-                                <div className="flex flex-col md:flex-row md:items-center gap-2">
-                                  <span className="font-semibold text-sm md:text-base">{pkg.sessions} séance{pkg.sessions > 1 ? 's' : ''}</span>
-                                  {pkg.savings && (
-                                    <Badge variant="outline" className="text-xs md:text-sm w-fit">
-                                      Économie: {pkg.savings}
-                                    </Badge>
-                                  )}
-                                </div>
-                                <span className="font-bold text-lg md:text-xl text-primary">{pkg.price}</span>
+                {/* Centrer les prestations quand il n'y en a qu'une */}
+                <div className={`grid ${serviceCount === 1 ? 'grid-cols-1 justify-items-center' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'} gap-6`}>
+                  {servicesInCategory.map((service, serviceIndex) => (
+                    <div key={serviceIndex} className={serviceCount === 1 ? 'w-full max-w-md' : 'w-full'}>
+                      <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm h-full flex flex-col">
+                        <CardHeader className="pb-3">
+                          <div className="flex justify-between items-start mb-2">
+                            <CardTitle className="text-xl font-semibold group-hover:text-primary transition-colors">
+                              {service.title}
+                            </CardTitle>
+                            {service.popular && (
+                              <div className="flex items-center bg-amber-100 text-amber-800 px-2 py-1 rounded-full text-xs">
+                                <Star className="w-3 h-3 mr-1 fill-amber-400" />
+                                Populaire
                               </div>
-                            ))}
+                            )}
                           </div>
-                        ) : (
-                          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-0">
-                            <span className="font-bold text-2xl md:text-3xl text-primary">{service.price}</span>
-                            <Button 
-                              size="sm" 
-                              className="bg-gradient-primary hover:opacity-90 transition-all duration-300 text-sm md:text-base"
-                              onClick={scrollToReservation}
-                            >
-                              Réserver
-                            </Button>
+                          <div className="flex items-center text-muted-foreground">
+                            <Clock className="w-4 h-4 mr-2" />
+                            <span className="text-sm">{service.duration}</span>
                           </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                        </CardHeader>
+                        <CardContent className="flex-grow">
+                          <p className="text-muted-foreground mb-4 line-clamp-2">
+                            {service.description}
+                          </p>
+                          <div className="flex items-center justify-between mt-auto">
+                            <span className="text-2xl font-bold text-primary">{service.price}</span>
+                            <div className="flex space-x-2">
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={() => handleServiceClick(service)}
+                                className="group-hover:border-primary"
+                              >
+                                Détails
+                                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                              </Button>
+                              <Button
+                                size="sm"
+                                onClick={handleReservation}
+                                className="bg-gradient-to-r from-primary to-primary/80 hover:opacity-90"
+                              >
+                                Réserver
+                              </Button>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  ))}
+                </div>
+              </div>
             );
           })}
         </div>
+
+        {/* CTA Section */}
+        <div className="text-center mt-16 p-8 bg-primary/5 rounded-2xl">
+          <h3 className="text-2xl font-bold text-primary mb-4">
+            Vous ne trouvez pas ce que vous cherchez ?
+          </h3>
+          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+            Contactez-nous pour une consultation personnalisée et découvrez 
+            comment nous pouvons vous aider à atteindre vos objectifs beauté et bien-être.
+          </p>
+          <Button
+            size="lg"
+            onClick={() => window.location.href = '/#contact'}
+            className="bg-gradient-to-r from-primary to-primary/80 hover:opacity-90"
+          >
+            Nous contacter
+          </Button>
+        </div>
       </div>
-    </section>
+
+      <ServiceModal
+        service={selectedService}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onReserve={handleReservation}
+      />
+    </div>
   );
 };

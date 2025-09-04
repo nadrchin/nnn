@@ -5,15 +5,16 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Calendar, Clock, User, Phone, Mail } from 'lucide-react';
+import { Calendar, Clock, User, Phone, Mail, MapPin } from 'lucide-react';
 import emailjs from 'emailjs-com';
+import { services } from '@/data/services'; // Import de toutes les prestations
 
 // ⚠️ REMPLACEZ CES VALEURS PAR LES VÔTRES ⚠️
 const EMAILJS_CONFIG = {
-  SERVICE_ID: 'service_m9pxnta', // Ex: service_abcdef
-  TEMPLATE_NOTIFICATION: 'template_13q4g7a', // Ex: template_123
-  TEMPLATE_CONFIRMATION: 'template_f2fdzby', // Ex: template_456
-  USER_ID: 'jtBfZXvajPvBUldJT', // Ex: user_abc123
+  SERVICE_ID: 'service_m9pxnta',
+  TEMPLATE_NOTIFICATION: 'template_13q4g7a',
+  TEMPLATE_CONFIRMATION: 'template_f2fdzby',
+  USER_ID: 'jtBfZXvajPvBUldJT',
 };
 
 export const ReservationForm = () => {
@@ -28,20 +29,6 @@ export const ReservationForm = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const services = [
-    "Rehaussement de cils",
-    "Soin du visage complet",
-    "Maquillage semi-permanent sourcils",
-    "Maquillage permanent lèvres",
-    "Massage du crâne",
-    "Massage du dos tonique",
-    "Massage californien",
-    "Drainage lymphatique",
-    "Réflexologie plantaire",
-    "Lipocavitation des cuisses",
-    "Blanchiment dentaire"
-  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -93,10 +80,16 @@ export const ReservationForm = () => {
 
     } catch (error) {
       console.error('Erreur EmailJS:', error);
-      alert('❌ Une erreur est survenue. Veuillez nous appeler directement au [votre numéro].');
+      alert('❌ Une erreur est survenue. Veuillez nous appeler directement au 0614084242.');
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleMapClick = () => {
+    const address = '23 rue Wattignies, Paris 75012';
+    const encodedAddress = encodeURIComponent(address);
+    window.open(`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`, '_blank');
   };
 
   return (
@@ -104,6 +97,18 @@ export const ReservationForm = () => {
       <h3 className="text-2xl font-bold text-primary mb-6 text-center">
         Réserver un rendez-vous
       </h3>
+      
+      <div className="flex items-center justify-center mb-6">
+        <Button 
+          variant="outline" 
+          size="sm" 
+          onClick={handleMapClick}
+          className="flex items-center gap-2"
+        >
+          <MapPin className="w-4 h-4" />
+          Voir l&apos;adresse sur Google Maps
+        </Button>
+      </div>
       
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -165,7 +170,7 @@ export const ReservationForm = () => {
             >
               <option value="">Sélectionnez un service</option>
               {services.map(service => (
-                <option key={service} value={service}>{service}</option>
+                <option key={service.id} value={service.title}>{service.title}</option>
               ))}
             </select>
           </div>
