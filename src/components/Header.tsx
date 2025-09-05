@@ -11,13 +11,13 @@ export const Header = () => {
 
   const handleNavClick = (hash: string) => {
     if (pathname === '/') {
-      // Sur la page d'accueil, scroll vers la section
+      
       const element = document.getElementById(hash.replace('#', ''));
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      // Sur d'autres pages, navigation vers l'accueil avec hash
+      
       window.location.href = `/${hash}`;
     }
     setIsMenuOpen(false);
@@ -31,7 +31,7 @@ export const Header = () => {
             Guzel K Beauty
           </Link>
 
-          {/* Navigation desktop */}
+          
           <nav className="hidden md:flex space-x-8">
             {['#services', '#about', '#contact'].map((item) => (
               <button
@@ -46,7 +46,7 @@ export const Header = () => {
             ))}
           </nav>
 
-          {/* Menu mobile */}
+          {/* tel */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -57,7 +57,7 @@ export const Header = () => {
           </div>
         </div>
 
-        {/* Menu mobile dropdown */}
+        {/* tel fluide */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 bg-white p-4 rounded-lg shadow-lg">
             <div className="flex flex-col space-y-4">

@@ -7,9 +7,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Calendar, Clock, User, Phone, Mail, MapPin } from 'lucide-react';
 import emailjs from 'emailjs-com';
-import { services } from '@/data/services'; // Import de toutes les prestations
+import { services } from '@/data/services'; 
 
-// ⚠️ REMPLACEZ CES VALEURS PAR LES VÔTRES ⚠️
+
 const EMAILJS_CONFIG = {
   SERVICE_ID: 'service_m9pxnta',
   TEMPLATE_NOTIFICATION: 'template_13q4g7a',
@@ -35,7 +35,7 @@ export const ReservationForm = () => {
     setIsSubmitting(true);
 
     try {
-      // 1. Email de notification pour le propriétaire (vous)
+      // mail propriétaire du salon
       await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.TEMPLATE_NOTIFICATION,
@@ -51,7 +51,7 @@ export const ReservationForm = () => {
         EMAILJS_CONFIG.USER_ID
       );
 
-      // 2. Email de confirmation pour le client
+      // mail de confirmation pour le client
       await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.TEMPLATE_CONFIRMATION,
@@ -67,7 +67,7 @@ export const ReservationForm = () => {
 
       alert('✅ Réservation confirmée ! Un email de confirmation vous a été envoyé.');
       
-      // Réinitialiser le formulaire
+      // reset 
       setFormData({ 
         name: '', 
         email: '', 

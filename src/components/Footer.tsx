@@ -21,7 +21,8 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          
+          {/* navigation */}
           <div>
             <h4 className="font-semibold text-foreground mb-4">Navigation</h4>
             <div className="space-y-2">
@@ -40,7 +41,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Contact Info */}
+          {/* info */}
           <div>
             <h4 className="font-semibold text-foreground mb-4">Contact</h4>
             <div className="space-y-3">
@@ -66,7 +67,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom bar */}
+        {/* en bas */}
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">

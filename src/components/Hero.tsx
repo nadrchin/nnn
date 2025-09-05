@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Star, MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
 
-// NOUVELLE IMAGE HERO HAUTE QUALITÉ
+
 const heroImage = "https://images.unsplash.com/photo-1620733719521-fa0625956f5c?w=1200&q=100&auto=format&fit=crop";
 
 export const Hero = () => {
@@ -19,7 +19,7 @@ export const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background image haute qualité sans filtre */}
+      
       <div className="absolute inset-0 z-0">
         <div className="w-full h-full relative">
           <Image
@@ -33,7 +33,7 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Content avec z-index plus élevé */}
+      
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-2xl">
           <div className="mb-6">
@@ -43,7 +43,7 @@ export const Hero = () => {
                   <Star key={i} className="w-5 h-5 fill-gold text-gold" />
                 ))}
               </div>
-              {/* SUPPRIMÉ: <span className="text-lg font-semibold text-foreground">5,0 · 1 avis</span> */}
+              
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-primary">
@@ -86,7 +86,7 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Floating elements */}
+      
       <div className="absolute top-20 right-20 w-20 h-20 bg-gradient-accent rounded-full opacity-20 animate-pulse" />
       <div className="absolute bottom-32 right-32 w-12 h-12 bg-gradient-primary rounded-full opacity-30 animate-pulse delay-1000" />
       <div className="absolute top-1/2 right-10 w-6 h-6 bg-gold rounded-full opacity-40 animate-pulse delay-500" />

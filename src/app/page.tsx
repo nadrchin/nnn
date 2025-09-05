@@ -5,7 +5,7 @@ import { About } from '@/components/About';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 import { ReservationForm } from '@/components/ReservationForm';
-import { IoTSimulator } from '@/components/IoTSimulator'; // <-- ajout
+import { IoTSimulator } from '@/components/IoTSimulator'; 
 
 export default function Home() {
   return (

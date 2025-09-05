@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css"; // Cette ligne doit être présente
+import "./globals.css"; 
 import { Chatbot } from "@/components/Chatbot"; 
 
 

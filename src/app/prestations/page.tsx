@@ -1,7 +1,7 @@
 import { services } from "@/data/services";
 import { AllServices } from "@/components/AllServices";
-import { Header } from "@/components/Header";  // Import nommé
-import { Footer } from "@/components/Footer";  // Import nommé
+import { Header } from "@/components/Header"; 
+import { Footer } from "@/components/Footer";  
 
 export default function PrestationsPage() {
   return (

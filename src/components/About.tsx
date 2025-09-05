@@ -86,7 +86,7 @@ export const About = () => {
                 </CardContent>
               </Card>
 
-              {/* Decorative elements */}
+             
               <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-primary rounded-full opacity-60" />
               <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-accent rounded-full opacity-40" />
             </div>

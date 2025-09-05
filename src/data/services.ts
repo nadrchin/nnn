@@ -13,7 +13,7 @@ export interface Service {
 }
 
 export const services: Service[] = [
-  // Beauté Du Regard
+  // Beauté du regard
   {
     id: "rehaussement-cils",
     title: "Rehaussement de cils",
@@ -42,7 +42,7 @@ Vos yeux semblent agrandis. Votre regard est sublimé.`,
     ]
   },
 
-  // Soin Du Visage
+  // Soin du visage
   {
     id: "microneedling",
     title: "Microneedling",
@@ -71,7 +71,7 @@ Vos ridules sont atténuées et vos traits retrouvent leur fermeté grâce à un
     ]
   },
 
-  // Maquillage Permanent Et Semi-permanent
+  // Maquillage permanent et semi-permanent
   {
     id: "maquillage-levres",
     title: "Maquillage semi-permanent - Lèvres",
@@ -142,7 +142,7 @@ Votre regard s'ouvre. Quelque soit le moment de la journée, vous êtes resplend
     ]
   },
 
-  // Perte De Poids Et Anti-cellulite
+  // Perte de poids et anti-cellulite
   {
     id: "lifting-colombien",
     title: "Lifting colombien",
@@ -253,7 +253,7 @@ Votre peau est lissée et raffermie, votre silhouette affinée et remodelée et 
     ]
   },
 
-  // Massage Classique
+  // Massage classique
   {
     id: "massage-californien",
     title: "Massage californien",
@@ -448,7 +448,7 @@ Un véritable soin capillaire doublé d'une délicieuse parenthèse de relaxatio
     popular: true
   },
 
-  // Réflexologie Et Massage Lymphatique
+  // Réflexologie et massage lymphatique
   {
     id: "reflexologie-plantaire",
     title: "Réflexologie plantaire",
@@ -514,7 +514,7 @@ Grâce à ce massage, votre système immunitaire est renforcé : vous vous sente
     ]
   },
 
-  // Blanchiment Dentaire
+  // Blanchiment dentaire
   {
     id: "blanchiment-dentaire",
     title: "Blanchiment dentaire américain",

@@ -53,7 +53,7 @@ export const AllServices = ({ services }: AllServicesProps) => {
           <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
         </div>
 
-        {/* Services Grid */}
+       
         <div className="grid gap-12">
           {categories.map((category, index) => {
             const servicesInCategory = servicesByCategory[category];
@@ -125,7 +125,7 @@ export const AllServices = ({ services }: AllServicesProps) => {
           })}
         </div>
 
-        {/* CTA Section */}
+        
         <div className="text-center mt-16 p-8 bg-primary/5 rounded-2xl">
           <h3 className="text-2xl font-bold text-primary mb-4">
             Vous ne trouvez pas ce que vous cherchez ?

@@ -110,17 +110,17 @@ export const IoTSimulator = () => {
   const [isAutoControl, setIsAutoControl] = useState(true);
   const [selectedChart, setSelectedChart] = useState<'temperature' | 'humidity' | 'power'>('temperature');
   
-  // Référence pour accéder à la dernière valeur dans l'intervalle
+  
   const sensorDataRef = useRef(sensorData);
   sensorDataRef.current = sensorData;
 
-  // Simulation thermique réaliste avec inertie - CORRIGÉ
+  
   useEffect(() => {
     const interval = setInterval(() => {
       const { isOn, targetTemp, mode } = heater.getStatus();
       let newTemp = sensorDataRef.current.temperature; // Utilise la ref
 
-      // Simulation physique réaliste
+      
       if (isOn) {
         if (newTemp < targetTemp) {
           newTemp += 0.2 * (1 + Math.random() * 0.3);
@@ -128,15 +128,15 @@ export const IoTSimulator = () => {
           newTemp -= 0.1; // Refroidit un peu si trop chaud
         }
       } else {
-        // Refroidit vers l'ambiance extérieure (~17°C)
+        
         if (newTemp > 17) {
           newTemp -= 0.1 * (1 + Math.random() * 0.2);
         } else if (newTemp < 17) {
-          newTemp += 0.05; // Réchauffe un peu si trop froid
+          newTemp += 0.05; // 
         }
       }
 
-      // Bruit de mesure réaliste
+      
       newTemp += (Math.random() - 0.5) * 0.05;
 
       const newData: SensorData = {
@@ -154,9 +154,9 @@ export const IoTSimulator = () => {
     }, 2000);
 
     return () => clearInterval(interval);
-  }, [heater]); // Plus de dépendance à sensorData
+  }, [heater]); 
 
-  // Contrôle automatique
+  
   useEffect(() => {
     if (!isAutoControl) return;
 
@@ -219,7 +219,7 @@ export const IoTSimulator = () => {
     return 'bg-red-100 text-red-700';
   };
 
-  // Préparation des données pour les graphiques
+  
   const chartData = history.map((data, index) => ({
     time: new Date(data.timestamp).toLocaleTimeString('fr-FR', { 
       hour: '2-digit', 
@@ -269,7 +269,7 @@ export const IoTSimulator = () => {
         <p className="text-muted-foreground">Monitoring temps réel avec analyse graphique</p>
       </div>
 
-      {/* Alertes */}
+      
       {alerts.length > 0 && (
         <Card className="border-blue-200 bg-blue-50">
           <CardContent className="p-4">
@@ -340,7 +340,7 @@ export const IoTSimulator = () => {
           </CardContent>
         </Card>
 
-        {/* Carte Contrôle */}
+        
         <Card className="shadow-lg">
           <CardContent className="p-6">
             <div className="flex items-center gap-2 mb-4">
@@ -408,7 +408,7 @@ export const IoTSimulator = () => {
           </CardContent>
         </Card>
 
-        {/* Mini graphique */}
+        
         <Card className="shadow-lg">
           <CardContent className="p-6">
             <div className="flex items-center gap-2 mb-4">
@@ -462,7 +462,7 @@ export const IoTSimulator = () => {
         </Card>
       </div>
 
-      {/* Graphiques détaillés */}
+      
       <Card className="shadow-lg">
         <CardContent className="p-6">
           <div className="flex items-center gap-2 mb-6">

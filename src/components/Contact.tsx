@@ -104,7 +104,7 @@ export const Contact = () => {
             </div>
           </div>
 
-          {/* Formulaire de contact */}
+          
           <div className="bg-card border border-border rounded-xl p-6 shadow-soft">
             <h3 className="text-2xl font-semibold mb-4">Envoyez-nous un message</h3>
             <form className="space-y-4">

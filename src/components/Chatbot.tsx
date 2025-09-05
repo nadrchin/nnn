@@ -34,7 +34,7 @@ export const Chatbot = () => {
   const handleSendMessage = () => {
     if (inputText.trim() === '') return;
 
-    // Ajouter le message de l'utilisateur
+    // message utilisateur
     const userMessage: Message = {
       text: inputText,
       sender: 'user',
@@ -43,7 +43,7 @@ export const Chatbot = () => {
     setMessages(prev => [...prev, userMessage]);
     setInputText('');
 
-    // Simuler une réponse du bot après un délai
+    // réponse délai
     setTimeout(() => {
       let botResponse = '';
       
@@ -76,7 +76,7 @@ export const Chatbot = () => {
 
   return (
     <>
-      {/* Bouton de lancement du chatbot */}
+      {/* bouton de lancement */}
       {!isOpen && (
         <Button
           onClick={() => setIsOpen(true)}
@@ -86,7 +86,7 @@ export const Chatbot = () => {
         </Button>
       )}
 
-      {/* Fenêtre de chat */}
+      {/* fenêtre de chat */}
       {isOpen && (
         <div className="fixed bottom-6 right-6 w-80 h-96 bg-white rounded-lg shadow-xl border border-gray-200 flex flex-col z-50">
           {/* En-tête */}
@@ -105,7 +105,7 @@ export const Chatbot = () => {
             </Button>
           </div>
 
-          {/* Messages */}
+          {/* messages */}
           <div className="flex-1 p-3 overflow-y-auto">
             {messages.map((message, index) => (
               <div
@@ -132,7 +132,7 @@ export const Chatbot = () => {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input */}
+          
           <div className="p-3 border-t border-gray-200">
             <div className="flex gap-2">
               <Input
